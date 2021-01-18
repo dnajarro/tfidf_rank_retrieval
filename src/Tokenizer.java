@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-// TODO: do I only add the tokens that are in the dictionary?
 public class Tokenizer {
 
     private Set<String> dictionary;
@@ -69,8 +68,8 @@ public class Tokenizer {
         String resultToken;
         if (subwords.length > 1) {
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < subwords.length; i++) {
-                sb.append(subwords[i]);
+            for (String subword : subwords) {
+                sb.append(subword);
             }
 
             resultToken = sb.toString();
@@ -85,12 +84,5 @@ public class Tokenizer {
         }
 
         return resultToken;
-    }
-
-    private boolean isInDictionary(String word) {
-        if (!dictionary.contains(word)) {
-            return false;
-        }
-        return true;
     }
 }
